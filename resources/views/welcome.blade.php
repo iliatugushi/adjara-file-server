@@ -59,6 +59,7 @@
                             <tr>
                                 <th scope="col">იდენტიფიკატორი</th>
                                 <th scope="col">ფოლდერი</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,6 +67,11 @@
                             <tr>
                                 <th>{{$item->identifikator}}</th>
                                 <th>{{$item->path}}</th>
+                                <th>
+                                    <a href="{{route('delete', ['element' => 'sakme', 'elementID' => $item->id])}}">
+                                        წაშლა
+                                    </a>
+                                </th>
                             </tr>
                             @endforeach
                         </tbody>
@@ -113,6 +119,7 @@
                                 <th scope="col">ფოლდერი</th>
                                 <th scope="col">დასახელება</th>
                                 <th scope="col">ფაილის ტიპი</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -123,6 +130,11 @@
                                 <th>{{$item->path}}</th>
                                 <th>{{$item->name}}</th>
                                 <th>{{$item->mime_type}}</th>
+                                <th>
+                                    <a href="{{route('delete', ['element' => 'file', 'elementID' => $item->id])}}">
+                                        წაშლა
+                                    </a>
+                                </th>
                             </tr>
                             @endforeach
                         </tbody>
