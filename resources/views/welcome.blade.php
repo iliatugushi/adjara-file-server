@@ -15,7 +15,7 @@
 
 <body class="antialiased">
     <div class="jumbotron text-center">
-        <h1>ბაზაში მონაცემების ჩამატების ინტეფეისია</h1>
+        <h1>ბაზაში მონაცემების ჩამატების ინტერფეისი</h1>
         <p>ამ ინტერფეისით შეძლებთ ბაზაში მონაცემების ჩამატებას სანამ ახალი SOFT დააყენებთ </p>
         <div class="d-flex">
             <ul class="nav nav-pills text-center list-inline mx-auto justify-content-center">
