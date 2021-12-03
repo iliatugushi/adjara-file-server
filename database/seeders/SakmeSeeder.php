@@ -16,7 +16,7 @@ class SakmeSeeder extends Seeder
     {
         $data = [
             [
-                'identifikator' => 'sak_1',
+                'identifikator' => 'AR1_CR 1_FND1_AN1_SK1',
                 'path' => 'test/anaweri_1/sakme_1'
             ],
             [

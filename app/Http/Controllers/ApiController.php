@@ -13,6 +13,8 @@ class ApiController extends Controller
 {
     public function getSakmeFiles(Request $request)
     {
+
+
         $records_per_page = $request->per_page;
 
         if ($request->current_page == 1) {
@@ -45,6 +47,11 @@ class ApiController extends Controller
                 'result' => 'success',
                 'data' => $data,
                 'total' => $files->count() + $skip
+            ]);
+        } else {
+            return response()->json([
+                'result' => 'error',
+                'message' => 'No More Files'
             ]);
         }
     }
