@@ -89,10 +89,25 @@
                                 <label>საქმის იდენტიფიკატორი</label>
                                 <input type="text" class="form-control" name="sakme_id" required>
                             </div>
+
+
                             <div class="form-group">
-                                <label>ფაილები (გთხოვთ ყველა ფაილი მოათავსეთ საქმის ფოლდერში)</label><br>
-                                <input type="file" name="files[]" multiple="multiple">
+                                <label>ფაილის იდენტიფიკატორი</label>
+                                <input type="text" class="form-control" name="identifikator" required>
                             </div>
+                            <div class="form-group">
+                                <label>ფოლდერი</label>
+                                <input type="text" class="form-control" name="path" required>
+                            </div>
+                            <div class="form-group">
+                                <label>დასახელება</label>
+                                <input type="text" class="form-control" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>ფაილის ტიპი</label>
+                                <input type="text" class="form-control" name="mime_type" required>
+                            </div>
+
                             <button type="submit" class="btn btn-primary caps btn-sm">დამატება</button>
                         </div>
                     </form>

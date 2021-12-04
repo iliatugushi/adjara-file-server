@@ -13,8 +13,50 @@ class ApiController extends Controller
 {
     public function getSakmeFiles(Request $request)
     {
+        $records_per_page = $request->per_page;
+
+        if ($request->current_page == 1) {
+            $skip = 0;
+            $counter = 0;
+        } else {
+            $skip = ($request->current_page - 1) * $request->per_page;
+            $counter = ($request->current_page - 1) * $request->per_page;
+        }
+
+        $data = [];
+
+        $files = File::where('sakme_id', $request->identifikator)->skip($skip)->take($records_per_page)->get();
+        if (count($files) > 0) {
+            foreach ($files as $item) {
+                $content = Storage::disk('files_root')->path($item->path);
+                $data[] = [
+                    'index' => $counter,
+                    'id' => $item->identifikator,
+                    'identifikator' => $item->identifikator,
+                    'mime_type' => $item->mime_type,
+                    'name' => $item->name,
+                    'file_base_64' => base64_encode(file_get_contents($content)),
+
+                ];
+                $counter++;
+            }
+
+            return response()->json([
+                'result' => 'success',
+                'data' => $data,
+                'total' => $files->count() + $skip
+            ]);
+        } else {
+            return response()->json([
+                'result' => 'error',
+                'message' => 'No More Files'
+            ]);
+        }
+    }
 
 
+    public function getSakmeFilesOLD(Request $request)
+    {
         $records_per_page = $request->per_page;
 
         if ($request->current_page == 1) {

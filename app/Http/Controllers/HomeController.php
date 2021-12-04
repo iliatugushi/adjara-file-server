@@ -27,6 +27,24 @@ class HomeController extends Controller
 
     public function fileNew(Request $request)
     {
+        $sakme = Sakme::where('identifikator', $request->sakme_id)->first();
+
+        foreach ($request->file('files') as $file) {
+            $new = new File;
+            $new->sakme_id = $sakme->identifikator;
+            $new->identifikator = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $new->path = $sakme->path . '/' . $file->getClientOriginalName();
+            $new->name = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $new->mime_type = $file->getMimeType();
+            $new->save();
+        }
+
+        return redirect()->back();
+    }
+
+
+    public function fileNewOLD(Request $request)
+    {
         $new = new File;
         $new->sakme_id = $request->sakme_id;
         $new->identifikator = $request->identifikator;
