@@ -42,6 +42,8 @@ _This command will clear all the cache._
 
 ## Configuration files are located in .env file and also in in /config Folder
 
+To indicate root directory for pictures you need to change in config/filesystems files_root disk location
+
 # System Structure & Folders
 
 As system is made on Laravel framework, we have mvc structure.
