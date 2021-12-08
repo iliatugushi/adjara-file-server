@@ -11,8 +11,17 @@ use App\Models\File;
 
 class ApiController extends Controller
 {
+    private $allowed_ips = ['192.168.1.7', '127.0.0.1'];
+
     public function getSakmeFiles(Request $request)
     {
+        if (!in_array(request()->ip(), $this->allowed_ips)) {
+            return response()->json([
+                'result' => 'error',
+                'message' =>   'Not Allowed From This IP'
+            ]);
+        }
+
         $records_per_page = $request->per_page;
 
         if ($request->current_page == 1) {
