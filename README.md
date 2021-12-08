@@ -12,17 +12,19 @@ Application is created using framweork Laravel, to run this app following requir
 -   PDO PHP Extension
 -   Tokenizer PHP Extension
 -   XML PHP Extension
--   MySql
+-   MySQL >= 5.7
 
 Also platform has to have composer installed. The database name and all required information is located in .env file.
 
 # Installation
 
-After all requirements are met, there are several command that has to be executed to run the project:
+After all requirements are met, there are several commands that has to be executed to run the project:
 
-`composer install`
+In .env file you have to indicate database information:
 
-_This command will install all composer required libraries for system to work._
+-   DB_DATABASE=
+-   DB_USERNAME=
+-   DB_PASSWORD=
 
 `php artisan key:generate`
 
@@ -38,11 +40,19 @@ _This command will migrate all the tables, and store them to database, also it w
 
 _This command will clear all the cache._
 
+`composer install`
+
+_This command will install all composer required libraries for system to work. This command is not needed to run now, because all the libraries are already installed in github folders._
+
 # Configuration
 
 ## Configuration files are located in .env file and also in in /config Folder
 
 To indicate root directory for pictures you need to change in config/filesystems files_root disk location
+
+## Logging
+
+All logs are stored in storage/logs folder
 
 # System Structure & Folders
 
